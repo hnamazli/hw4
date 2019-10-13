@@ -109,3 +109,56 @@ describe('pop', () => {
         assert.deepEqual(actual, expected);
     });
 })
+
+describe('unshift', () => {
+    it('should be return 1 (5)', () => {
+        const expected = 1;
+        const actual = arrList.unshift(5);
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return 2 (2)', () => {
+        const expected = 2;
+        const actual = arrList.unshift(2);
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return 3 (undefined)', () => {
+        const expected = 3;
+        const actual = arrList.unshift(undefined);
+
+        assert.deepEqual(actual, expected);
+    });
+})
+
+describe('shift', () => {
+    it('should be return undefined', () => {
+        const expected = undefined;
+        const actual = arrList.shift();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return 2', () => {
+        const expected = 2;
+        const actual = arrList.shift();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return 5', () => {
+        const expected = 5;
+        const actual = arrList.shift();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return undefined (not element)', () => {
+        const expected = undefined;
+        const actual = arrList.shift();
+
+        assert.deepEqual(actual, expected);
+    });
+})

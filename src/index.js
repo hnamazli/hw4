@@ -9,7 +9,7 @@ function ArrayList() {
     };
 
     this.clear = () => {
-        arr = [];
+        arr.length = 0;
         size = 0;
     };
 
@@ -36,18 +36,14 @@ function ArrayList() {
         return result;
     }
 
-    this.push = (number) => {
-        let result = size;
+    this.push = number => {
 
         if (number || typeof number === 'undefined') {
             arr[arr.length] = number;
-            result = arr.length;
             size++;
-        } else {
-            return result;
         }
 
-        return result;
+        return size;
     }
 
     this.pop = () => {
@@ -57,6 +53,45 @@ function ArrayList() {
             result = arr[arr.length - 1];
             arr[arr.length--];
             size--;                        
+        }
+
+        return result;
+    }
+
+    this.unshift = number => {
+        let tempArr = arr;
+        let tempArr2 = [];
+        let len = tempArr.length + 1;
+        
+        if (number || typeof number === 'undefined') {
+            for (let i = 0; i < len; i++) {
+                if (!i) {
+                    tempArr2[i] = number;
+                    size++;                  
+                } else {
+                    tempArr2[i] = tempArr[i - 1];
+                }
+            }
+            arr = tempArr2;
+        }
+
+        return size;
+    }
+
+    this.shift = () => {
+        let result = undefined;
+        let tempArr = arr;
+        let tempArr2 = [];
+        
+        if (size > 0) {
+            for (let i = 0; i < tempArr.length; i++) {
+                if (i) {
+                    tempArr2[i - 1] = tempArr[i];
+                } else {
+                    result = tempArr[i];
+                }
+            }
+            arr = tempArr2;
         }
 
         return result;
