@@ -49,7 +49,7 @@ function ArrayList() {
     this.pop = () => {
         let result = undefined;
         
-        if (size > 0) {
+        if (size) {
             result = arr[arr.length - 1];
             arr[arr.length--];
             size--;                        
@@ -83,7 +83,7 @@ function ArrayList() {
         let tempArr = arr;
         let tempArr2 = [];
         
-        if (size > 0) {
+        if (size) {
             for (let i = 0; i < tempArr.length; i++) {
                 if (i) {
                     tempArr2[i - 1] = tempArr[i];
