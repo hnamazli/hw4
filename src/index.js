@@ -37,9 +37,7 @@ const ArrayList = function() {
     }
 
     this.toArray = () => {
-        let result = [];
-
-        return result;
+        return array;
     }
 
     this.push = number => {

@@ -223,3 +223,71 @@ describe('ArrayList.toString', () => {
         assert.deepEqual(actual, expectedString);
     });
 });
+
+describe('ArrayList.toArray', () => {
+    it('should be return [] (undefined)', () => {
+        const alist = new ArrayList();
+        const arr = undefined;
+        alist.init(arr);
+        const expected = [];
+
+        const actual = alist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [] (0)', () => {
+        const alist = new ArrayList();
+        const arr = [];
+        alist.init(arr);
+        const expected = [];
+
+        const actual = alist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [1] ([1])', () => {
+        const alist = new ArrayList();
+        const expected = [1];
+        const arr = [1];
+        alist.init(arr);
+
+        const actual = alist.toArray();
+        
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [1, 2] ([1, 2])', () => {
+        const alist = new ArrayList();
+        const expected = [1, 2];
+        const arr = [1, 2];
+        alist.init(arr);
+
+        const actual = alist.toArray();
+        
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [1, 2, 3, 4, 5] ([1, 2, 3, 4, 5])', () => {
+        const alist = new ArrayList();
+        const expected = [1, 2, 3, 4, 5];
+        const arr = [1, 2, 3, 4, 5];
+        alist.init(arr);
+
+        const actual = alist.toArray();
+        
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [1, 2, 3, 4, 5, 6] ([1, 2, 3, 4, 5, 6])', () => {
+        const alist = new ArrayList();
+        const expected = [1, 2, 3, 4, 5, 6];
+        const arr = [1, 2, 3, 4, 5, 6];
+        alist.init(arr);
+
+        const actual = alist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+});
