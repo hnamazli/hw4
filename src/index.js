@@ -1,41 +1,49 @@
-function ArrayList() {
+const ArrayList = function() {
     let size = 0;
-    let arr = [];
-    let str = '';
-
-    this.init = array => {
-        arr = array;
-        size = arr.length;
-    };
+    let array = [];
 
     this.clear = () => {
-        arr.length = 0;
+        array.length = 0;
         size = 0;
+    };
+
+    this.init = arr => {
+        this.clear();
+
+        if (Array.isArray(arr)) {
+            for (let i = 0; i < arr.length; i++) {
+                array[i] = arr[i];
+                size++;
+            }            
+        }
     };
 
     this.getSize = () => size;
 
     this.toString = () => {
         let result = '';
-        result += arr;
-        str = result;
-        size = 0;
+
+        result += '[';
+        for (let i = 0; i < array.length; i++) {
+            result += array[i];
+            
+            if (i < array.length - 1) {
+                result += ', ';
+            }
+        }
+        result += ']';
 
         return result;
     }
 
     this.toArray = () => {
         let result = [];
-        
-        result = str.split(',').map(Number);
-        arr = result;
-        size = result.length;
 
         return result;
     }
 
     this.push = number => {
-        if (number || typeof number === 'undefined') {
+        if (number) {
             arr[arr.length] = number;
             size++;
         }
@@ -60,7 +68,7 @@ function ArrayList() {
         let tempArr2 = [];
         let len = tempArr.length + 1;
         
-        if (number || typeof number === 'undefined') {
+        if (number) {
             for (let i = 0; i < len; i++) {
                 if (!i) {
                     tempArr2[i] = number;
