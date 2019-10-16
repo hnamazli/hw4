@@ -36,13 +36,11 @@ const ArrayList = function() {
         return result;
     }
 
-    this.toArray = () => {
-        return array;
-    }
+    this.toArray = () => array;
 
     this.push = number => {
         if (number) {
-            arr[arr.length] = number;
+            array[array.length] = number;
             size++;
         }
 
@@ -53,29 +51,28 @@ const ArrayList = function() {
         let result = undefined;
         
         if (size) {
-            result = arr[arr.length - 1];
-            arr[arr.length--];
-            size--;                        
+            result = array[array.length - 1];
+            array[array.length--];
+            size--;
         }
 
         return result;
     }
 
-    this.unshift = number => {
-        let tempArr = arr;
-        let tempArr2 = [];
-        let len = tempArr.length + 1;
-        
+    this.unshift = number => {       
         if (number) {
-            for (let i = 0; i < len; i++) {
-                if (!i) {
-                    tempArr2[i] = number;
-                    size++;                  
+            let tempArr = [];
+
+            for (let i = 0; i <= array.length; i++) {
+                if (i) {
+                    tempArr[i] = array[i - 1];       
                 } else {
-                    tempArr2[i] = tempArr[i - 1];
+                    tempArr[i] = number;
                 }
             }
-            arr = tempArr2;
+
+            array = tempArr;
+            size++;
         }
 
         return size;
@@ -83,23 +80,21 @@ const ArrayList = function() {
 
     this.shift = () => {
         let result = undefined;
-        let tempArr = arr;
-        let tempArr2 = [];
+        let tempArr = [];
         
         if (size) {
-            for (let i = 0; i < tempArr.length; i++) {
+            for (let i = 0; i < array.length; i++) {
                 if (i) {
-                    tempArr2[i - 1] = tempArr[i];
+                    tempArr[i - 1] = array[i];
                 } else {
-                    result = tempArr[i];
+                    result = array[i];
                 }
             }
             
-            arr = tempArr2;
+            array = tempArr;
+            size--;
         }
 
         return result;
     }
 }
-
-let arrList = new ArrayList;
