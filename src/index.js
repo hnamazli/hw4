@@ -13,9 +13,7 @@ function ArrayList() {
         size = 0;
     };
 
-    this.getSize = () => {
-        return size;
-    }
+    this.getSize = () => size;
 
     this.toString = () => {
         let result = '';
@@ -37,7 +35,6 @@ function ArrayList() {
     }
 
     this.push = number => {
-
         if (number || typeof number === 'undefined') {
             arr[arr.length] = number;
             size++;
@@ -91,6 +88,7 @@ function ArrayList() {
                     result = tempArr[i];
                 }
             }
+            
             arr = tempArr2;
         }
 
